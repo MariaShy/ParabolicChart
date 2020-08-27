@@ -1,0 +1,24 @@
+﻿@model List<MyChartASPnetMVC.Models.UserData>
+
+@{
+    ViewBag.Title = "Index";
+}
+@using (Html.BeginForm())
+{
+    for (int i = 0; i < Model.Count; i++)
+    {
+        <h4>Plot № @(i+1)</h4>
+
+        @:  Function: y =  @Html.EditorFor(m => m[i].a)
+        @:  * x^2 + @Html.EditorFor(m => m[i].b)
+        @:  * x + @Html.EditorFor(m => m[i].c)
+
+        @: Step: @Html.EditorFor(m => m[i].step)
+        
+        @: From: @Html.EditorFor(m => m[i].RangeFrom)
+        @: to: @Html.EditorFor(m => m[i].RangeTo)
+        
+        //<input type="hidden" value="@ViewBag.UserDataId" name="UserDataId" />
+    }
+    <div><input type="submit" value="Plot" /></div>
+}
