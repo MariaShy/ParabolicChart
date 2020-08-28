@@ -1,27 +1,28 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
-
+using System.Web.Mvc;
 
 namespace MyChartASPnetMVC.Models
 {
     public class UserData
     {
+        //[HiddenInput(DisplayValue = false)] 
         public int UserDataId { get; set; }
-
-        [RegularExpression(@"^\d$", ErrorMessage = "Only numbers needed")] 
+                
         public int a { get; set; }
-        [RegularExpression(@"^\d$", ErrorMessage = "Only numbers needed")] 
+                
         public int b { get; set; }
-        [RegularExpression(@"^\d$", ErrorMessage = "Only numbers needed")] 
+                
         public int c { get; set; }
-        [Required]
-        [RegularExpression(@"^\d$", ErrorMessage = "Only numbers needed")]
+
+        [Required(ErrorMessage = "The field is required")]        
+        //[RegularExpression(@"^\d$", ErrorMessage = "Only numbers needed")]
         public float step { get; set; }
-        [Required]
-        [RegularExpression(@"^\d$", ErrorMessage = "Only numbers needed")]
+
+        [Required(ErrorMessage = "The field is required")]        
         public int RangeFrom { get; set; }
-        [Required]
-        [RegularExpression(@"^\d$", ErrorMessage = "Only numbers needed")]
+
+        [Required(ErrorMessage = "The field is required")]        
         public int RangeTo { get; set; }        
 
     }

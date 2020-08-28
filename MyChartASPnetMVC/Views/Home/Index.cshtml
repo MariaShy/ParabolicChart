@@ -5,20 +5,26 @@
 }
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary(true)
     for (int i = 0; i < Model.Count; i++)
     {
-        <h4>Plot № @(i+1)</h4>
+        <h4>Input the needed numbers below, please:</h4>
 
         @:  Function: y =  @Html.EditorFor(m => m[i].a)
         @:  * x^2 + @Html.EditorFor(m => m[i].b)
         @:  * x + @Html.EditorFor(m => m[i].c)
-
+        <div> </div>
         @: Step: @Html.EditorFor(m => m[i].step)
-        
+        @Html.ValidationMessageFor(m => m[i].step)
+        <div> </div>
         @: From: @Html.EditorFor(m => m[i].RangeFrom)
+        @Html.ValidationMessageFor(m => m[i].RangeFrom)
         @: to: @Html.EditorFor(m => m[i].RangeTo)
-        
+        @Html.ValidationMessageFor(m => m[i].RangeTo)
         //<input type="hidden" value="@ViewBag.UserDataId" name="UserDataId" />
     }
     <div><input type="submit" value="Plot" /></div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
 }

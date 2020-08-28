@@ -13,7 +13,7 @@ namespace MyChartASPnetMVC.Controllers
         public ActionResult Index()
         {
             List<UserData> ud = new List<UserData>();
-            ud.Add(new UserData { a=5,b=5,c=16,step=1,RangeFrom=-10,RangeTo=10 }) ;
+            ud.Add(new UserData { a=5,b=5,c=16,step=1.0F,RangeFrom=-10,RangeTo=10 }) ;
 
             return View(ud);
         }
@@ -48,7 +48,7 @@ namespace MyChartASPnetMVC.Controllers
                 .Write(format: "png");
             }
             else
-                return new Chart(600, 400, ChartTheme.Blue)
+                return new Chart(300, 300, ChartTheme.Blue)
                 .AddTitle("Your data is not valid :( ")
                 .Write(format: "png");
         }
