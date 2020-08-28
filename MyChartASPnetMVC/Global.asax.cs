@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using MyChartASPnetMVC.Models;
+using System.Data.Entity;
 
 namespace MyChartASPnetMVC
 {
@@ -12,6 +14,8 @@ namespace MyChartASPnetMVC
     {
         protected void Application_Start()
         {
+            Database.SetInitializer(new UserDataDbInitializer());
+
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);

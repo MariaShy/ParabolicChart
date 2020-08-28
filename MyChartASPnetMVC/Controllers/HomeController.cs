@@ -9,11 +9,19 @@ namespace MyChartASPnetMVC.Controllers
     {
         int[] px;
         int[] py;
-               
+
+        // создаем контекст данных
+        UserDataContext db = new UserDataContext();
+
         public ActionResult Index()
         {
-            List<UserData> ud = new List<UserData>();
-            ud.Add(new UserData { a=5,b=5,c=16,step=1.0F,RangeFrom=-10,RangeTo=10 }) ;
+            // получаем из бд все объекты UserData
+            IEnumerable<UserData> ud = db.UserDatas;
+            // передаем все объекты в динамическое свойство UserDatas в ViewBag
+            ViewBag.UserDatas = ud; 
+            
+           //List<UserData> ud = new List<UserData>();
+           //ud.Add(new UserData { a=5,b=5,c=16,step=1.0F,RangeFrom=-10,RangeTo=10 }) ;
 
             return View(ud);
         }
