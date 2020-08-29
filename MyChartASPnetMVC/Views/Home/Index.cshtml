@@ -1,30 +1,33 @@
-﻿@model IEnumerable<MyChartASPnetMVC.Models.UserData>
-
-@{
-    ViewBag.Title = "Index";
+﻿@{
+    Layout = null;
 }
-@using (Html.BeginForm())
-{
-    @Html.ValidationSummary(true)
-    for (int i = 0; i < Model.Count; i++)
-    {
-        <h4>Input the needed numbers below, please:</h4>
 
-        @:  Function: y =  @Html.EditorFor(m => m[i].a)
-        @:  * x^2 + @Html.EditorFor(m => m[i].b)
-        @:  * x + @Html.EditorFor(m => m[i].c)
-        <div> </div>
-        @: Step: @Html.EditorFor(m => m[i].step)
-        @Html.ValidationMessageFor(m => m[i].step)
-        <div> </div>
-        @: From: @Html.EditorFor(m => m[i].RangeFrom)
-        @Html.ValidationMessageFor(m => m[i].RangeFrom)
-        @: to: @Html.EditorFor(m => m[i].RangeTo)
-        @Html.ValidationMessageFor(m => m[i].RangeTo)
-        //<input type="hidden" value="@ViewBag.UserDataId" name="UserDataId" />
-    }
-    <div><input type="submit" value="Plot" /></div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
-}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Plotting</title>
+</head>
+<body>
+    <div>
+        <h3>Input the function coefficients, please:</h3>
+        <form method="post" action="" target="_blank">
+            
+            <table>
+                <tr>
+                    <td><p>y =</p></td>
+                    <td><input  type="text" size="1" name="a" /> </td>
+                    <td><p> * x^2 + </p></td>
+                    <td><input  type="text" size="1" name="b" /> </td>
+                    <td><p> * x + </p></td>
+                    <td><input  type="text" size="1" name="c" /> </td>
+                </tr>
+                <tr><td><input  type="text" size="5" name="step" /> </td></tr>
+                <tr><td><input  type="text" size="5" name="RangeFrom" /> </td></tr>
+                <tr><td><input  type="text" size="5" name="RangeTo" /> </td></tr>
+                <tr><td></td><td></td><td><input type="submit" value="Plot!" /> </td> <td></td><td></td><td></td></tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

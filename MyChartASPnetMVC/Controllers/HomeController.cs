@@ -23,16 +23,16 @@ namespace MyChartASPnetMVC.Controllers
            //List<UserData> ud = new List<UserData>();
            //ud.Add(new UserData { a=5,b=5,c=16,step=1.0F,RangeFrom=-10,RangeTo=10 }) ;
 
-            return View(ud);
+            return View();
         }
 
         [HttpPost]
-        public Chart Index(List<UserData> ud)
+        public Chart Index(UserData udFirst)
         {
             if (ModelState.IsValid)
             {
                 Point pt = new Point();
-                UserData udFirst = ud[0];
+                //UserData udFirst = ud[0];
 
                 int n = (udFirst.RangeTo - udFirst.RangeFrom) / (int)udFirst.step;
                 px = new int[n + 1];
