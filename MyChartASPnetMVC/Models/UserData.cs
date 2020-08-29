@@ -15,7 +15,8 @@ namespace MyChartASPnetMVC.Models
                 
         public int c { get; set; }
 
-        [Required(ErrorMessage = "The field is required")]        
+        [Required(ErrorMessage = "The field is required")]
+        [RegularExpression(@"[0-9]*", ErrorMessage = "Only positive numbers needed")]
         //[RegularExpression(@"^\d$", ErrorMessage = "Only numbers needed")]
         public float step { get; set; }
 

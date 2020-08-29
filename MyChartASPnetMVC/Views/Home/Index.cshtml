@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<MyChartASPnetMVC.Models.UserData>
+@{
     Layout = null;
 }
 
@@ -12,22 +13,30 @@
     <div>
         <h3>Input the function coefficients, please:</h3>
         <form method="post" action="" target="_blank">
-            
+            @Html.ValidationSummary(true)
             <table>
                 <tr>
-                    <td><p>y =</p></td>
-                    <td><input  type="text" size="1" name="a" /> </td>
+                    <td><p>Function: y =</p></td>
+                    <td><input type="text" size="1" name="a" /> </td>
                     <td><p> * x^2 + </p></td>
-                    <td><input  type="text" size="1" name="b" /> </td>
+                    <td><input type="text" size="1" name="b" /> </td>
                     <td><p> * x + </p></td>
-                    <td><input  type="text" size="1" name="c" /> </td>
+                    <td><input type="text" size="1" name="c" /> </td>
                 </tr>
-                <tr><td><input  type="text" size="5" name="step" /> </td></tr>
-                <tr><td><input  type="text" size="5" name="RangeFrom" /> </td></tr>
-                <tr><td><input  type="text" size="5" name="RangeTo" /> </td></tr>
+                <tr><td><p>Step: </p></td><td><input type="text" size="1" name="step" /> </td>
+                </tr>
+                <tr>
+                    <td><p>From: </p></td>
+                    <td><input type="text" size="1" name="RangeFrom" /> </td>
+                    <td><p>to: </p></td>
+                    <td><input type="text" size="1" name="RangeTo" /> </td>
+                </tr>
                 <tr><td></td><td></td><td><input type="submit" value="Plot!" /> </td> <td></td><td></td><td></td></tr>
             </table>
         </form>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validation-unobtrusive/3.2.11/jquery.validate.unobtrusive.min.js"></script>
 </body>
 </html>
